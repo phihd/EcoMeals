@@ -1,21 +1,23 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)), 
+    url('https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/22/10/istock-683044558.jpg?quality=75&width=990&crop=2091%3A1394%2Csmart&auto=webp'
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,17 +26,17 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header p {
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
 
-  to {
-    transform: rotate(360deg);
+@media (max-width: 768px) {
+  .App-header {
+    height: 50vh;
   }
 }
 
@@ -53,6 +55,11 @@
   text-align: center;
   width: min-content
 }
+
+.meal-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
 
 .meal-option h3 {
   margin-top: 0;
@@ -96,3 +103,22 @@
     opacity: 1;
   }
 }
+
+.selected-meals {
+  background-color: #a4a86d;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+  
+  .selected-meals li {
+  background-color: #f7f7f7;
+  color: #444;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 16px;
+  }

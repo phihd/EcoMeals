@@ -5,6 +5,7 @@ import './App.css';
 import matchaCake from './images/matcha_cake.png';
 import mochi from './images/mochi.webp';
 import pho from './images/pho.jpeg';
+import pokeBowl from './images/poke_bowl.webp';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       'id': '0001',
       'name': 'Matcha cake',
       'img': matchaCake,
-      'description': 'This matcha cake or green tea cake is a light and fluffy sponge cake flavored with matcha power, aka green tea powder.'
+      'description': 'A light and fluffy sponge cake flavored with matcha power, aka green tea powder.'
     },
     {
       'id': '0002',
@@ -27,6 +28,12 @@ function App() {
       'img': pho,
       'description': `Vietnamese soup consisting of bone broth, rice noodles, and thinly sliced meat (usually beef).
       It may also be served with bean sprouts, fresh herbs, limes, chiles, and other garnishes.`
+    },
+    {
+      'id': '0004',
+      'name': 'Poke bowl',
+      'img': pokeBowl,
+      'description': `Hawaiian combine diced salmon, soy sauce, vinegar, sriracha, and sesame oil.`
     }
   ]
   // Define states
@@ -100,45 +107,55 @@ function App() {
           </ul>
         <h2>Select Dietary Preferences and Restrictions</h2>
         <p>Click on each option to select or deselect</p>
-        <div>
-          <label>
+        <div className="checkbox-row">
+          <label className="checkbox">
             <input type="checkbox" id="myCheckbox" value="vegan" checked={dietaryPrefs.includes('vegan')} onChange={() => handleDietaryPrefChange('vegan')} />
+            <span className="checkmark"></span>
             Vegan
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="gluten-free" checked={dietaryPrefs.includes('gluten-free')} onChange={() => handleDietaryPrefChange('gluten-free')} />
+            <span className="checkmark"></span>
             Gluten-free
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="organic" checked={dietaryPrefs.includes('organic')} onChange={() => handleDietaryPrefChange('organic')} />
+            <span className="checkmark"></span>
             Organic
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="low-carb" checked={dietaryPrefs.includes('low-carb')} onChange={() => handleDietaryPrefChange('low-carb')} />
+            <span className="checkmark"></span>
             Low-carb
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="paleo" checked={dietaryPrefs.includes('paleo')} onChange={() => handleDietaryPrefChange('paleo')} />
+            <span className="checkmark"></span>
             Paleo
           </label>
           <label>
             <input type="checkbox" value="kosher" checked={dietaryPrefs.includes('kosher')} onChange={() => handleDietaryPrefChange('kosher')} />
+            <span className="checkmark"></span>
             Kosher
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="halal" checked={dietaryPrefs.includes('halal')} onChange={() => handleDietaryPrefChange('halal')} />
+            <span className="checkmark"></span>
             Halal
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="dairy-free" checked={dietaryRestrictions.includes('dairy-free')} onChange={() => handleDietaryRestrictionChange('dairy-free')} />
+            <span className="checkmark"></span>
             Dairy-free
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="nut-free" checked={dietaryRestrictions.includes('nut-free')} onChange={() => handleDietaryRestrictionChange('nut-free')} />
+            <span className="checkmark"></span>
             Nut-free
           </label>
-          <label>
+          <label className="checkbox">
             <input type="checkbox" value="soy-free" checked={dietaryRestrictions.includes('soy-free')} onChange={() => handleDietaryRestrictionChange('soy-free')} />
+            <span className="checkmark"></span>
             Soy-free
           </label>
         </div>
