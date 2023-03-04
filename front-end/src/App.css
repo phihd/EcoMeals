@@ -5,6 +5,8 @@ html, body {
 
 .App {
   text-align: center;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
 }
 
 .App-header {
