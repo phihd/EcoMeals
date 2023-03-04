@@ -36,9 +36,11 @@ function App() {
       'description': `Hawaiian combine diced salmon, soy sauce, vinegar, sriracha, and sesame oil.`
     }
   ]
+
+  const dietaryPrefsCheckBoxes = ['Vegan', 'Gluten-free', 'Organic', 'Low-carb', 'Paleo', 'Kosher', 'Halal', 'Dairy-free', 'Nut-free', 'Soy-free'];
+
   // Define states
   const [dietaryPrefs, setDietaryPrefs] = useState([]);
-  const [dietaryRestrictions, setDietaryRestrictions] = useState([]);
   const [selectedMeals, setSelectedMeals] = useState(['']);
   const [subscription, setSubscription] = useState({
     plan: '',
@@ -53,14 +55,6 @@ function App() {
       setDietaryPrefs(dietaryPrefs.filter(item => item !== pref));
     } else {
       setDietaryPrefs([...dietaryPrefs, pref]);
-    }
-  }
-
-  const handleDietaryRestrictionChange = (restriction: string) => {
-    if (dietaryRestrictions.includes(restriction)) {
-      setDietaryRestrictions(dietaryRestrictions.filter(item => item !== restriction));
-    } else {
-      setDietaryRestrictions([...dietaryRestrictions, restriction]);
     }
   }
 
@@ -80,7 +74,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>EcoMeals</h1>
+        <h1>ECOMEALS</h1>
         <p>Browse our selection of sustainable, plant-based meals and customize your subscription!</p>
       </header>
       <main>
@@ -95,7 +89,8 @@ function App() {
                   Add to Cart
                 </button>
               </div>
-            ))}
+            )
+            )}
           </li>
         </ul>
         <h3>Selected meals:</h3>
@@ -108,56 +103,19 @@ function App() {
         <h2>Select Dietary Preferences and Restrictions</h2>
         <p>Click on each option to select or deselect</p>
         <div className="checkbox-row">
-          <label className="checkbox">
-            <input type="checkbox" id="myCheckbox" value="vegan" checked={dietaryPrefs.includes('vegan')} onChange={() => handleDietaryPrefChange('vegan')} />
-            <span className="checkmark"></span>
-            Vegan
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="gluten-free" checked={dietaryPrefs.includes('gluten-free')} onChange={() => handleDietaryPrefChange('gluten-free')} />
-            <span className="checkmark"></span>
-            Gluten-free
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="organic" checked={dietaryPrefs.includes('organic')} onChange={() => handleDietaryPrefChange('organic')} />
-            <span className="checkmark"></span>
-            Organic
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="low-carb" checked={dietaryPrefs.includes('low-carb')} onChange={() => handleDietaryPrefChange('low-carb')} />
-            <span className="checkmark"></span>
-            Low-carb
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="paleo" checked={dietaryPrefs.includes('paleo')} onChange={() => handleDietaryPrefChange('paleo')} />
-            <span className="checkmark"></span>
-            Paleo
-          </label>
-          <label>
-            <input type="checkbox" value="kosher" checked={dietaryPrefs.includes('kosher')} onChange={() => handleDietaryPrefChange('kosher')} />
-            <span className="checkmark"></span>
-            Kosher
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="halal" checked={dietaryPrefs.includes('halal')} onChange={() => handleDietaryPrefChange('halal')} />
-            <span className="checkmark"></span>
-            Halal
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="dairy-free" checked={dietaryRestrictions.includes('dairy-free')} onChange={() => handleDietaryRestrictionChange('dairy-free')} />
-            <span className="checkmark"></span>
-            Dairy-free
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="nut-free" checked={dietaryRestrictions.includes('nut-free')} onChange={() => handleDietaryRestrictionChange('nut-free')} />
-            <span className="checkmark"></span>
-            Nut-free
-          </label>
-          <label className="checkbox">
-            <input type="checkbox" value="soy-free" checked={dietaryRestrictions.includes('soy-free')} onChange={() => handleDietaryRestrictionChange('soy-free')} />
-            <span className="checkmark"></span>
-            Soy-free
-          </label>
+          {dietaryPrefsCheckBoxes.map((dietaryPref) => (
+              <label className="checkbox" key={dietaryPref}>
+                <input
+                  value={dietaryPref}
+                  checked={dietaryPrefs.includes(dietaryPref)}
+                  onChange={() => handleDietaryPrefChange(dietaryPref)}
+                  type="checkbox"
+                />
+                <span className="checkmark"></span>
+                {dietaryPref}
+              </label>
+            )
+          )}
         </div>
         <h2>Manage Subscription Details</h2>
         <form>
