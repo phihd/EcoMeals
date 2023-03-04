@@ -78,31 +78,31 @@ function App() {
       </header>
       <main>
         <ul>
-          <li>
+          <li className="meal-grid">
             {meals.map((meal) => (
-              <div key={meal.id}>
+              <div key={meal.id} className="meal-option">
                 <h3>{meal.name}</h3>
                 <img src={meal.img} height="500" width="750" alt={meal.name} />
                 <p>{meal.description}</p>
                 <button onClick={() => handleSelectMeal(meal.id)}>
-                  Select
+                  Add to Cart
                 </button>
               </div>
             ))}
-            <h3>Selected meals:</h3>
-            <ul>
-              {selectedMeals.map((id) => {
-                const meal = meals.find((meal) => meal.id === id);
-                return meal && <li key={id}>{meal.name}</li>;
-              })}
-            </ul>
           </li>
         </ul>
+        <h3>Selected meals:</h3>
+          <ul>
+            {selectedMeals.map((id) => {
+              const meal = meals.find((meal) => meal.id === id);
+              return meal && <li key={id}>{meal.name}</li>;
+            })}
+          </ul>
         <h2>Select Dietary Preferences and Restrictions</h2>
         <p>Click on each option to select or deselect</p>
-        <div className="checkboxes">
+        <div>
           <label>
-            <input type="checkbox" value="vegan" checked={dietaryPrefs.includes('vegan')} onChange={() => handleDietaryPrefChange('vegan')} />
+            <input type="checkbox" id="myCheckbox" value="vegan" checked={dietaryPrefs.includes('vegan')} onChange={() => handleDietaryPrefChange('vegan')} />
             Vegan
           </label>
           <label>
